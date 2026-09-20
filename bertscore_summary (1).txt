@@ -1,0 +1,58 @@
+bert-score  : 0.3.12
+transformers: 5.13.1
+model       : roberta-large
+pairs       : 10791
+
+==================================================================
+F1_raw
+==================================================================
+model      prompt        correct perm_glb perm_dom      gap
+ChatGPT    Zero-shot      0.8997   0.8413   0.8516   0.0481
+ChatGPT    CoT            0.8675   0.8237   0.8334   0.0342
+ChatGPT    Structured     0.8687   0.8239   0.8320   0.0367
+Gemini     Zero-shot      0.8715   0.8261   0.8355   0.0360
+Gemini     CoT            0.8422   0.8135   0.8207   0.0214
+Gemini     Structured     0.8471   0.8143   0.8221   0.0250
+Llama      Zero-shot      0.8812   0.8264   0.8371   0.0441
+Llama      CoT            0.8169   0.7876   0.7923   0.0246
+Llama      Structured     0.8388   0.8014   0.8081   0.0307
+
+correct          pooled mean=0.8593  sd=0.0387  min=0.7247  p05=0.8037  p95=0.9246  max=1.0000
+permuted_global  pooled mean=0.8176  sd=0.0235  min=0.7216  p05=0.7778  p95=0.8547  max=0.9374
+permuted_domain  pooled mean=0.8259  sd=0.0246  min=0.7035  p05=0.7863  p95=0.8637  max=0.9479
+permuted_global  3.9% of permuted pairs score above the median correct pair (0.8573)
+permuted_domain  7.8% of permuted pairs score above the median correct pair (0.8573)
+
+==================================================================
+F1_rescaled
+==================================================================
+model      prompt        correct perm_glb perm_dom      gap
+ChatGPT    Zero-shot      0.4058   0.0595   0.1209   0.2849
+ChatGPT    CoT            0.2151  -0.0444   0.0127   0.2023
+ChatGPT    Structured     0.2222  -0.0434   0.0049   0.2173
+Gemini     Zero-shot      0.2385  -0.0301   0.0251   0.2134
+Gemini     CoT            0.0649  -0.1050  -0.0622   0.1271
+Gemini     Structured     0.0941  -0.1000  -0.0541   0.1482
+Llama      Zero-shot      0.2962  -0.0285   0.0348   0.2614
+Llama      CoT           -0.0846  -0.2583  -0.2304   0.1458
+Llama      Structured     0.0448  -0.1767  -0.1370   0.1819
+
+correct          pooled mean=0.1664  sd=0.2296  min=-0.6312  p05=-0.1631  p95=0.5533  max=1.0000
+permuted_global  pooled mean=-0.0808  sd=0.1391  min=-0.6494  p05=-0.3167  p95=0.1393  max=0.6289
+permuted_domain  pooled mean=-0.0317  sd=0.1458  min=-0.7565  p05=-0.2660  p95=0.1921  max=0.6911
+permuted_global  3.9% of permuted pairs score above the median correct pair (0.1542)
+permuted_domain  7.8% of permuted pairs score above the median correct pair (0.1542)
+
+==================================================================
+Precision / recall on correctly paired responses (closes D3)
+==================================================================
+model      prompt              P        R       F1
+ChatGPT    Zero-shot      0.9153   0.8855   0.8997
+ChatGPT    CoT            0.8616   0.8745   0.8675
+ChatGPT    Structured     0.8651   0.8732   0.8687
+Gemini     Zero-shot      0.8666   0.8773   0.8715
+Gemini     CoT            0.8245   0.8613   0.8422
+Gemini     Structured     0.8307   0.8648   0.8471
+Llama      Zero-shot      0.8753   0.8881   0.8812
+Llama      CoT            0.7818   0.8560   0.8169
+Llama      Structured     0.8112   0.8690   0.8388
